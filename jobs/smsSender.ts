@@ -1,9 +1,10 @@
 import { SmSCollection } from "../db";
 import { getNow, getSeq } from "./utils";
 
-const accountSid = "AC2825137c360655e2ffa061a5fb714be1";
-const authToken = "2d82fb1126082356a008a87e1ebc0c29";
-const client = require("twilio")(accountSid, authToken);
+const client = require("twilio")(
+  process.env.SENDGRID_SID,
+  process.env.SENDGIRD_TOKEN
+);
 
 export const sendSMS = async (args: {
   phone: string;
