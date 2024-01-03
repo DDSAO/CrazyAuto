@@ -1,6 +1,7 @@
 import axios from "axios";
 import { SequenceCollection } from "../db";
 import CryptoJS from "crypto-js";
+import moment from "moment-timezone";
 
 export const sendGetRequest = async (url: string) => {
   try {
@@ -9,10 +10,8 @@ export const sendGetRequest = async (url: string) => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Basic NDU0ODFmZjk3Yzk5MWM1YjFhMTM3MmQ5N2E1OWVmZmY6Yjk2YmQ1NzktMzI3YS00N2Y0LWJkMTYtMTczOGI3NTlmYzZj",
-          "X-Auth":
-            "NDU0ODFmZjk3Yzk5MWM1YjFhMTM3MmQ5N2E1OWVmZmY6Yjk2YmQ1NzktMzI3YS00N2Y0LWJkMTYtMTczOGI3NTlmYzZj",
+          Authorization: `Basic ${process.env.AUTH_TOKEN}`,
+          "X-Auth": `${process.env.AUTH_TOKEN}`,
         },
       }
     );
@@ -55,6 +54,8 @@ export const toTimestamp = (time: number) => Math.floor(time / 1000);
 
 export const getNow = () => toTimestamp(new Date().getTime());
 
+export const toTwoDecimals = (num: number) => +(Math.round(num * 100) + "e-2");
+
 export const getTongtoolAppendix = () => {
   let now = getNow();
   let signRaw = `app_token${"a469bc177fefe2cb6d4874e6b7348513"}timestamp${now}${"7964478624a9488f818a640a4b2ef4bd19d570f495db47918a7e489a75866af0"}`;
@@ -64,3 +65,17 @@ export const getTongtoolAppendix = () => {
 
 export const sleep = (ms: number) =>
   new Promise((resolve) => setTimeout(resolve, ms));
+
+export const timestampToBeijingTime = (timestamp: number) => {
+  return moment(timestamp * 1000)
+    .tz("Asia/Shanghai")
+    .format("YYYY-MM-DD HH:mm:ss");
+};
+
+export const beijingTimeToTimestamp = (timeStr: string) => {
+  return isNaN(
+    moment.tz(timeStr, "Asia/Shanghai").tz("Australia/Sydney").unix()
+  )
+    ? null
+    : moment.tz(timeStr, "Asia/Shanghai").tz("Australia/Sydney").unix();
+};

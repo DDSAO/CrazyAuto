@@ -5,6 +5,7 @@ import { syncProducts } from "./jobs/syncProducts";
 import { getNow, getTongtoolAppendix, sleep } from "./jobs/utils";
 import CryptoJS from "crypto-js";
 import axios from "axios";
+import { syncTongtoolProducts } from "./jobs/syncTongtoolProducts";
 const app = express();
 const port = process.env.PORT || 4999;
 
@@ -20,38 +21,20 @@ cron.schedule(
   }
 );
 
-app.get("/", async (req, res) => {
-  let shouldContinue = true;
-  let pageNo = 1;
-  while (shouldContinue) {
-    let response = await axios.post(
-      `https://open.tongtool.com/api-service/openapi/tongtool/goodsQuery${getTongtoolAppendix()}`,
-      {
-        merchantId: "867c7b0416daad473a756d6f0e21e6d7",
-        pageSize: "100",
-        productType: "0",
-        pageNo,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          api_version: "3.0",
-        },
-        timeout: 10000,
-      }
-    );
-    if (response.data.datas !== null) {
-      console.log(response.data.datas);
-      if (response.data.datas.length === 0) {
-        break;
-      } else {
-        pageNo += 1;
-      }
-    }
-
-    await sleep(12000);
+cron.schedule(
+  "0 2 * * *",
+  async () => {
+    //sync products at 2:00
+    await syncTongtoolProducts();
+  },
+  {
+    scheduled: true,
+    timezone: "Australia/Sydney",
   }
+);
 
+app.get("/", async (req, res) => {
+  await syncTongtoolProducts();
   res.send("ok");
 });
 
