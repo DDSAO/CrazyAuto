@@ -6,7 +6,7 @@ import moment from "moment-timezone";
 export const sendGetRequest = async (url: string) => {
   try {
     let response = await axios.get(
-      `${process.env.API_DOMAIN}/czpoffice${url}`,
+      `${process.env.PRESTA_DOMAIN}/czpoffice${url}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -58,9 +58,9 @@ export const toTwoDecimals = (num: number) => +(Math.round(num * 100) + "e-2");
 
 export const getTongtoolAppendix = () => {
   let now = getNow();
-  let signRaw = `app_token${"a469bc177fefe2cb6d4874e6b7348513"}timestamp${now}${"7964478624a9488f818a640a4b2ef4bd19d570f495db47918a7e489a75866af0"}`;
+  let signRaw = `app_token${process.env.TONGTOOL_APP_TOKEN}timestamp${now}${process.env.TONGTOOL_APP_SECRET}`;
   let sign = CryptoJS.MD5(signRaw).toString();
-  return `?app_token=${"a469bc177fefe2cb6d4874e6b7348513"}&timestamp=${now}&sign=${sign}`;
+  return `?app_token=${process.env.TONGTOOL_APP_TOKEN}}&timestamp=${now}&sign=${sign}`;
 };
 
 export const sleep = (ms: number) =>

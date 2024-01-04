@@ -10,7 +10,9 @@ export const syncTongtoolProducts = async () => {
     let pageNo = 1;
     while (shouldContinue) {
       let response = await axios.post(
-        `https://open.tongtool.com/api-service/openapi/tongtool/goodsQuery${getTongtoolAppendix()}`,
+        `${
+          process.env.TONGTOOL_DOMAIN
+        }/api-service/openapi/tongtool/goodsQuery${getTongtoolAppendix()}`,
         {
           merchantId: "867c7b0416daad473a756d6f0e21e6d7",
           pageSize: "100",
@@ -106,7 +108,7 @@ export const syncTongtoolProducts = async () => {
               ...good,
               item_id:
                 good.goodsSku && productsDict[good.goodsSku]
-                  ? productsDict[good.goodsSku]
+                  ? productsDict[good.goodsSku].id
                   : null,
             };
           })

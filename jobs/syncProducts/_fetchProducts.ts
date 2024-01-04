@@ -1,5 +1,5 @@
 import { ProductCollection } from "../../db";
-import { Product } from "../../interfaces/products";
+import { Product } from "../../interfaces/product";
 import { getNow, getSeq, sendGetRequest } from "../utils";
 import { keyBy, omit } from "lodash";
 

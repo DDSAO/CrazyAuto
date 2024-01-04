@@ -10,6 +10,10 @@ import {
 } from "../utils";
 import { ProductCollection, TongtoolProductCollection } from "../../db";
 import { keyBy, omit } from "lodash";
+import {
+  RawTongtoolOrder,
+  TongtoolOrder,
+} from "../../interfaces/tongtoolOrder";
 
 export const syncTongtoolOrders = async () => {
   let pageNo = 1;
@@ -35,14 +39,14 @@ export const syncTongtoolOrders = async () => {
         timeout: 10000,
       }
     );
-    let infos = response.data?.datas?.array ?? [];
+    let infos: RawTongtoolOrder[] = response.data?.datas?.array ?? [];
 
     if (infos.length < 100) {
       shouldContinue = false;
     }
 
     for (const info of infos) {
-      let newInfo = {
+      let newInfo: TongtoolOrder = {
         ...info,
         buyerAccountId: parseInt(info.buyerAccountId),
         webstoreOrderId: parseInt(info.webstoreOrderId), //order id
@@ -75,7 +79,7 @@ export const syncTongtoolOrders = async () => {
                 trackingNumberTime: toTimestamp(packageInfo.trackingNumberTime),
               };
             })
-          : null,
+          : [],
         orderDetails: info.orderDetails
           ? info.orderDetails.map((detail: any) => {
               return {
@@ -86,7 +90,7 @@ export const syncTongtoolOrders = async () => {
                 transaction_price: toTwoDecimals(detail.transaction_price),
               };
             })
-          : null,
+          : [],
         goodsInfo: {
           platformGoodsInfoList: info.goodsInfo.platformGoodsInfoList.map(
             (item: any) => {
