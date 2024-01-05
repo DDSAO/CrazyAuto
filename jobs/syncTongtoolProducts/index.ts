@@ -106,7 +106,7 @@ export const syncTongtoolProducts = async () => {
           goods.map((good) => {
             return {
               ...good,
-              item_id:
+              itemId:
                 good.goodsSku && productsDict[good.goodsSku]
                   ? productsDict[good.goodsSku].id
                   : null,

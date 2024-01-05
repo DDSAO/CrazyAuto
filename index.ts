@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import cron from "node-cron";
 import { syncOrders } from "./jobs/syncOrders";
 import { syncProducts } from "./jobs/syncProducts";
-import { getNow, getTongtoolAppendix, sleep } from "./jobs/utils";
+import { getNow, getTongtoolAppendix, sleep, toTimestamp } from "./jobs/utils";
 import CryptoJS from "crypto-js";
 import axios from "axios";
 import { syncTongtoolProducts } from "./jobs/syncTongtoolProducts";
@@ -34,7 +34,7 @@ cron.schedule(
 );
 
 app.get("/", async (req, res) => {
-  await syncTongtoolProducts();
+  await syncProducts();
   res.send("ok");
 });
 

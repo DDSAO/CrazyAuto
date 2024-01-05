@@ -76,12 +76,14 @@ export const EMPTY_NEXT_ORDER_ADDRESS: NextOrderAddress = {
 };
 
 export interface NextOrderItem {
-  itemId: number;
+  itemId: number | null;
   sku: string;
   upc: string;
   name: string;
   unitPrice: number;
   qty: number;
+  qtyRefunded?: number;
+  productKind: string;
   subtotal: number; // = unitPrice * qty
   discountAmount: number; // exc tax
   tax: number; // = (unitPrice * qty - discountAmount) * 0.1
@@ -126,7 +128,7 @@ export interface NextOrder {
   status: string;
 
   customer: {
-    customerId: number;
+    customerId: number | null;
     firstName: string;
     lastName: string;
     level: string;
