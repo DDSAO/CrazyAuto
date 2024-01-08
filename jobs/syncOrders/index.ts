@@ -17,7 +17,6 @@ export const syncOrders = async (start: number, end: number) => {
     orders = firstRequest.orders;
 
     for (let i = 0; i < Math.ceil(total / 50); i++) {
-      console.log(i + 1, Math.ceil(total / 50));
       let res = await sendGetRequest(
         `/order/list?page_no=${
           i + 2

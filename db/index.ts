@@ -3,6 +3,7 @@ import { Product } from "../interfaces/product";
 import { SMSMessage, Sequence } from "../interfaces/system";
 import { NextOrder, OrderRefundRow } from "../interfaces/order";
 import { Customer } from "../interfaces/customer";
+import { RepairJob } from "../interfaces/repair";
 
 export const client = new MongoClient("mongodb://0.0.0.0:27017");
 
@@ -31,3 +32,7 @@ export const NextOrderCollection = client
 export const CustomerCollection = client
   .db("CrazyApp")
   .collection<Customer>("CustomerCollection");
+
+export const RepairJobCollection = client
+  .db("CrazyApp")
+  .collection<RepairJob>("RepairJobCollection");
