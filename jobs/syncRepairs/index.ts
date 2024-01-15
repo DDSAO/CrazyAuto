@@ -3,6 +3,7 @@ import {
   CustomerCollection,
   NextOrderCollection,
   ProductCollection,
+  RepairJobCollection,
 } from "../../db";
 import { getNow, getSeq, sendGetRequest, toTwoDecimals } from "../utils";
 import { RawPrestaOrder } from "../../interfaces/order";
@@ -24,7 +25,15 @@ export const syncRepairs = async (start: number, end: number) => {
     }
   }
 
-  let parsedJobs = data.map(())
+  let existedJobs = await RepairJobCollection
+
+  let parsedJobs = data.map((job) => {
+    return {
+      ...job,
+      prestaId: parseInt(job.id),
+
+    }
+  })
 
   return [];
 };

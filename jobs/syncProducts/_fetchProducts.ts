@@ -37,7 +37,7 @@ export const _fetchProducts = async (startPage: number, endPage: number) => {
     }
     return {
       ...omit(product, ["czp_id"]),
-      id: 0,
+      id: product.czp_id ? product.czp_id : 0,
       prestaId: product.id ? product.id : null,
       magentoId: product.czp_id ? product.czp_id : null,
       name: product.name,
@@ -69,11 +69,11 @@ export const _fetchProducts = async (startPage: number, endPage: number) => {
   let existedItemsDict = keyBy(existedItems, "prestaId");
 
   for (const parsedProduct of parsedProducts) {
-    if (parsedProduct.magentoId) {
+    if (parsedProduct.id) {
       //items on both magento and presta
       await ProductCollection.updateOne(
         {
-          id: parsedProduct.magentoId,
+          id: parsedProduct.id,
         },
         {
           $set: {
@@ -90,7 +90,7 @@ export const _fetchProducts = async (startPage: number, endPage: number) => {
         //new items, but already saved, DONT reset id or prices
         await ProductCollection.updateOne(
           {
-            prestaId: parsedProduct.prestaId,
+            id: existedItemsDict[parsedProduct.prestaId].id,
           },
           {
             $set: {

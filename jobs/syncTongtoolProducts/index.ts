@@ -27,7 +27,6 @@ export const syncTongtoolProducts = async () => {
           timeout: 10000,
         }
       );
-      console.log(pageNo, omit(response.data.datas, ["array"]));
       await sleep(12000);
 
       if (response.data.datas !== null) {
