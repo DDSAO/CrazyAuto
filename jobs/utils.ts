@@ -79,3 +79,18 @@ export const beijingTimeToTimestamp = (timeStr: string) => {
     ? null
     : moment.tz(timeStr, "Asia/Shanghai").tz("Australia/Sydney").unix();
 };
+
+export const getDaysAgo = (days: number, setHours?: string) => {
+  if (!setHours) {
+    return toTimestamp(new Date().setDate(new Date().getDate() - days));
+  } else {
+    let numberArr: number[] = setHours.split(",").map((i) => parseInt(i));
+    return toTimestamp(
+      new Date(new Date().setDate(new Date().getDate() - days)).setHours(
+        numberArr[0],
+        numberArr[1],
+        numberArr[2]
+      )
+    );
+  }
+};
