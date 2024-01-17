@@ -43,6 +43,7 @@ export interface RawTongtoolOrder {
   isInvalid: string | null;
   salesRecordNumber: string;
   orderIdCode: string;
+  orderStatus: string;
 
   buyerAccountId: string;
   buyerCity: string | null;
