@@ -42,7 +42,7 @@ export const syncTongtoolProducts = async () => {
         }
       } catch (e) {
         console.log(e);
-        if (errorCounts >= 20) break;
+        if (errorCounts++ >= 20) break;
       }
 
       await sleep(12000);
