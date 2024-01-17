@@ -1,9 +1,10 @@
 import { MongoClient } from "mongodb";
-import { Product } from "../interfaces/product";
+import { Product, TongtoolProduct } from "../interfaces/product";
 import { SMSMessage, Sequence } from "../interfaces/system";
-import { NextOrder, OrderRefundRow } from "../interfaces/order";
+import { NextOrder, Order, OrderRefundRow } from "../interfaces/order";
 import { Customer } from "../interfaces/customer";
 import { RepairJob } from "../interfaces/repair";
+import { TongtoolOrder } from "../interfaces/tongtoolOrder";
 
 export const client = new MongoClient("mongodb://0.0.0.0:27017");
 
@@ -20,7 +21,7 @@ export const SmSCollection = client
 
 export const TongtoolProductCollection = client
   .db("CrazyApp")
-  .collection("TongtoolProductCollection");
+  .collection<TongtoolProduct>("TongtoolProductCollection");
 
 export const OrderRefundRowCollection = client
   .db("CrazyApp")
@@ -28,6 +29,12 @@ export const OrderRefundRowCollection = client
 export const NextOrderCollection = client
   .db("CrazyApp")
   .collection<NextOrder>("NextOrderCollection");
+export const OrderCollection = client
+  .db("CrazyApp")
+  .collection<Order>("OrderCollection");
+export const TongtoolOrderCollection = client
+  .db("CrazyApp")
+  .collection<TongtoolOrder>("OrderCollection");
 
 export const CustomerCollection = client
   .db("CrazyApp")

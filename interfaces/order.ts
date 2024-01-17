@@ -14,6 +14,7 @@ export type OrderLinesRow = {
 };
 
 export interface OrderRefundRow {
+  serialId: number;
   order_id: number | null;
   salesRecordNumber: string;
   customer_id: number;
@@ -24,18 +25,18 @@ export interface OrderRefundRow {
   qty: number;
   maxQty: number;
   unitPrice: number;
-  discount: 0;
+  discount: number;
   tax: number;
-  amount: number; //amount = (unitPrice - discount) * qty
+  amount: number; //amount = (unitPrice - discount + tax) * qty
   refundReason: string;
   createdAt: number;
   createdBy: string;
-  paidAt: number;
-  paidBy: string;
-  notifiedByEmailAt: number;
-  notifiedByEmailBy: string;
-  notifiedBySMSAt: number;
-  notifiedBySMSBy: string;
+  paidAt?: number;
+  paidBy?: string;
+  notifiedByEmailAt?: number;
+  notifiedByEmailBy?: string;
+  notifiedBySMSAt?: number;
+  notifiedBySMSBy?: string;
 }
 
 export type OrderAddress = {
@@ -223,3 +224,45 @@ export interface RawPrestaOrder {
   created_at: number;
   updated_at: number;
 }
+
+export type Order = {
+  id: number;
+  status: string;
+  order_number: string;
+  lines: OrderLinesRow[];
+  payment: {
+    method_code: string;
+    method_name: string;
+  };
+  shipment: {
+    method_code: string;
+    method_name: string;
+  };
+  shipping_address: OrderAddress;
+  shipping: number;
+
+  created_at: number;
+  order_date: number;
+
+  customer_email: string;
+  customer_group: string;
+  customer_id: number;
+  customer_firstname: string;
+  customer_lastname: string;
+
+  subtotal_exc_tax: number;
+  tax: number;
+  grand_total: number;
+
+  geoCoding: {
+    lat: number;
+    lng: number;
+  };
+
+  token?: string;
+
+  createdAt?: number;
+  createdBy?: string;
+  tongtoolUploadedAt?: number;
+  tongtoolUploadedBy?: string;
+};

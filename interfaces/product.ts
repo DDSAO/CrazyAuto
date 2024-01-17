@@ -22,3 +22,47 @@ export interface Product {
 
   prestaId?: number | null;
 }
+
+export interface RawPrestaProduct {
+  id: number;
+  sku: string;
+  upc: string;
+  is_active: boolean;
+  name: string;
+  product_kind: string;
+  product_type: string;
+  quality: string;
+  czp_id: number;
+  created_at: number;
+  updated_at: number;
+}
+
+export interface RawTongtoolProduct {
+  brandName: string;
+  categoryName: string;
+  createdDate: string;
+  goodsDetail: {
+    goodsAveCost: number;
+    goodsCurCost: number;
+    goodsDetailId: string;
+    goodsSku: string;
+    goodsWeight: number;
+  }[];
+
+  packageCost: number;
+  packageWeight: number;
+
+  sku: string;
+  status: string | null;
+
+  productName: string;
+}
+
+export interface TongtoolProduct extends RawTongtoolProduct {
+  goodsSku: string;
+  goodsAveCost: number;
+  goodsCurCost: number;
+  goodsWeight: number;
+  productType: number;
+  itemId: number | null;
+}

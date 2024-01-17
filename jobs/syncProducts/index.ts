@@ -1,20 +1,18 @@
 import { getNow, sendGetRequest } from "../utils";
-import { _fetchProducts } from "./_fetchProducts";
+import { saveProducts } from "./_saveProducts";
 
 export const syncProducts = async () => {
   let firstRequest = await sendGetRequest(
     `/product/list?page_no=1&page_size=50&&from=0&to=${getNow()}`
   );
   if (firstRequest.total) {
-    let totalPages = Math.ceil(firstRequest.total / 50);
-    let gap = Math.ceil(totalPages / 24);
-    for (let i = 0; i < 24; i++) {
-      console.log(i + 1, 24);
-      try {
-        await _fetchProducts(gap * i || 1, gap * (i + 1));
-      } catch (e) {
-        console.log(e);
-      }
+    let { total } = firstRequest;
+    for (let i = 0; i < Math.ceil(total / 50); i++) {
+      console.log(i, Math.ceil(total / 50));
+      let res = await sendGetRequest(
+        `/product/list?page_no=${i + 1}&page_size=50&&from=0&to=${getNow()}`
+      );
+      if (res) await saveProducts(res.products);
     }
   }
 };

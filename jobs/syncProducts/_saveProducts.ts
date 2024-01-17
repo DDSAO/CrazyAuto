@@ -1,0 +1,67 @@
+import { keyBy, omit } from "lodash";
+import { Product, RawPrestaProduct } from "../../interfaces/product";
+import { ProductCollection } from "../../db";
+import { getClassname } from "./_getClassname";
+import { getSeq } from "../utils";
+
+export const saveProducts = async (products: RawPrestaProduct[]) => {
+  let existedItems = await ProductCollection.find({
+    prestaId: {
+      $in: products.map((product) => product.id),
+    },
+  }).toArray();
+  let existedItemsDict = keyBy(existedItems, "prestaId");
+
+  for (const product of products) {
+    let matchedItem = existedItemsDict[product.id];
+    let className = getClassname(product.product_kind, product.product_type);
+
+    if (matchedItem) {
+      await ProductCollection.updateOne(
+        {
+          id: matchedItem.id,
+        },
+        {
+          $set: {
+            name: product.name,
+            sku: product.sku,
+            product_kind: product.product_kind,
+            product_type: product.product_type,
+            created_at: product.created_at,
+            updated_at: product.updated_at,
+            class: className,
+            upc: product.upc ? String(product.upc).trim() : null,
+            quality: product.quality,
+          },
+        },
+        {
+          upsert: true,
+        }
+      );
+    } else {
+      let serialId = await getSeq("product", 50000);
+      await ProductCollection.insertOne({
+        ...omit(product, ["czp_id"]),
+        id: serialId,
+        prestaId: product.id ? product.id : null,
+        magentoId: product.czp_id ? product.czp_id : null,
+        name: product.name,
+        sku: product.sku,
+        product_kind: product.product_kind,
+        product_type: product.product_type,
+        created_at: product.created_at,
+        updated_at: product.updated_at,
+        class: className,
+        upc: product.upc ? String(product.upc).trim() : null,
+        quality: product.quality,
+        prices: {
+          Retailer: null,
+          Gold: null,
+          Platinum: null,
+          Diamond: null,
+          Black: null,
+        },
+      });
+    }
+  }
+};

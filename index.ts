@@ -13,6 +13,7 @@ import CryptoJS from "crypto-js";
 import axios from "axios";
 import { syncTongtoolProducts } from "./jobs/syncTongtoolProducts";
 import { syncCustomers } from "./jobs/syncCustomers";
+import { syncTongtoolOrders } from "./jobs/syncTongtoolOrders";
 const app = express();
 const port = process.env.PORT || 4999;
 
@@ -52,8 +53,32 @@ cron.schedule(
   }
 );
 
+cron.schedule(
+  "*/3 * * * *",
+  async () => {
+    //sync orders every 3 minites
+    await syncOrders(getNow() - 200, getNow());
+  },
+  {
+    scheduled: true,
+    timezone: "Australia/Sydney",
+  }
+);
+
+cron.schedule(
+  "*/3 * * * *",
+  async () => {
+    //sync orders every 3 minites
+    await syncTongtoolOrders(getNow() - 200, getNow());
+  },
+  {
+    scheduled: true,
+    timezone: "Australia/Sydney",
+  }
+);
+
 app.get("/", async (req, res) => {
-  await syncCustomers(toTimestamp(new Date("2019-01-01").getTime()), getNow());
+  await syncTongtoolOrders(getNow() - 200, getNow());
   res.send("ok");
 });
 

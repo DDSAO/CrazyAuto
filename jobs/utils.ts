@@ -60,7 +60,7 @@ export const getTongtoolAppendix = () => {
   let now = getNow();
   let signRaw = `app_token${process.env.TONGTOOL_APP_TOKEN}timestamp${now}${process.env.TONGTOOL_APP_SECRET}`;
   let sign = CryptoJS.MD5(signRaw).toString();
-  return `?app_token=${process.env.TONGTOOL_APP_TOKEN}}&timestamp=${now}&sign=${sign}`;
+  return `?app_token=${process.env.TONGTOOL_APP_TOKEN}&timestamp=${now}&sign=${sign}`;
 };
 
 export const sleep = (ms: number) =>
@@ -93,4 +93,30 @@ export const getDaysAgo = (days: number, setHours?: string) => {
       )
     );
   }
+};
+
+const timestampToDateStr = (time: number) => {
+  let date = new Date(time * 1000);
+  return `${String(date.getFullYear()).padStart(4, "0")}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+};
+
+const timestampToDateTimeStr = (time: number) => {
+  let date = new Date(time * 1000);
+  return `${String(date.getFullYear()).padStart(4, "0")}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")} ${String(
+    date.getHours()
+  ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(
+    date.getSeconds()
+  ).padStart(2, "0")}`;
+};
+
+export const timestampToDateStrDateFirst = (time?: number | null) => {
+  if (!time) return "-";
+  let date = new Date(time * 1000);
+  return `${String(date.getDate()).padStart(2, "0")}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${String(date.getFullYear()).padStart(4, "0")}`;
 };
