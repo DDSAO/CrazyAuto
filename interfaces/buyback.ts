@@ -117,4 +117,26 @@ export interface RawBuybackInfo {
   id: number;
   num: string;
   status: number;
+  customer_id: number;
+  customer_group_code: string;
+  email: string;
+  phone: string;
+  name: string;
+  items: {
+    name: string;
+    price: number;
+    qtys: {
+      qty_sent: number;
+    };
+  };
+  address_line: string;
+
+  city: string;
+  state: string;
+  postcode: string;
+
+  payment_method: number;
+  handle_non_func_lcd: 1 | 2;
+  tracking_no: string | null;
+  created_at: number;
 }
