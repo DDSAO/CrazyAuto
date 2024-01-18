@@ -35,6 +35,25 @@ export interface RawPrestaProduct {
   czp_id: number;
   created_at: number;
   updated_at: number;
+  price: number; //Retailer
+  group_price: {
+    "4": {
+      group_code: "Gold";
+      price: number;
+    };
+    "5": {
+      group_code: "Platinum";
+      price: number;
+    };
+    "6": {
+      group_code: "Diamond";
+      price: number;
+    };
+    "7": {
+      group_code: "Black";
+      price: number;
+    };
+  };
 }
 
 export interface RawTongtoolProduct {

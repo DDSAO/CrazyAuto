@@ -32,6 +32,13 @@ export const saveProducts = async (products: RawPrestaProduct[]) => {
             class: className,
             upc: product.upc ? String(product.upc).trim() : null,
             quality: product.quality,
+            prices: {
+              Retailer: product.price,
+              Gold: product.group_price["4"].price,
+              Platinum: product.group_price["5"].price,
+              Diamond: product.group_price["6"].price,
+              Black: product.group_price["7"].price,
+            },
           },
         },
         {
@@ -55,11 +62,11 @@ export const saveProducts = async (products: RawPrestaProduct[]) => {
         upc: product.upc ? String(product.upc).trim() : null,
         quality: product.quality,
         prices: {
-          Retailer: null,
-          Gold: null,
-          Platinum: null,
-          Diamond: null,
-          Black: null,
+          Retailer: product.price,
+          Gold: product.group_price["4"].price,
+          Platinum: product.group_price["5"].price,
+          Diamond: product.group_price["6"].price,
+          Black: product.group_price["7"].price,
         },
       });
     }

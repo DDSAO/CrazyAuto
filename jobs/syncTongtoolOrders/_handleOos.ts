@@ -3,7 +3,7 @@ import { TongtoolOrder } from "../../interfaces/tongtoolOrder";
 import {
   getNow,
   getSeq,
-  timestampToDateStrDateFirst,
+  timestampToDateTimeStr,
   toTwoDecimals,
 } from "../utils";
 import { OrderCollection, OrderRefundRowCollection } from "../../db";
@@ -111,7 +111,7 @@ export const handleOos = async (tongtoolOrder: TongtoolOrder) => {
         .map((row) => `${row.sku} * ${row.qty}`)
         .join(", ")}. Total Pending Payment: $ ${toTwoDecimals(
         Object.values(failedItems).reduce((sum, row) => sum + row.amount, 0)
-      )}. [Updated at ${timestampToDateStrDateFirst(getNow())}]`;
+      )}. [Updated at ${timestampToDateTimeStr(getNow())}]`;
 
       if (tongtoolOrder.buyerPhone)
         await sendSMS({

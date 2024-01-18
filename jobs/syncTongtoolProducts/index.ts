@@ -1,24 +1,31 @@
 import axios from "axios";
-import { getTongtoolAppendix, sleep, toTwoDecimals } from "../utils";
+import {
+  getNow,
+  getTongtoolAppendix,
+  sleep,
+  timestampToDateTimeStr,
+  toTwoDecimals,
+} from "../utils";
 import { ProductCollection, TongtoolProductCollection } from "../../db";
 import { keyBy, omit } from "lodash";
 import { RawTongtoolProduct } from "../../interfaces/product";
 import { saveTongtoolProducts } from "./_saveTongtoolProducts";
 
-export const syncTongtoolProducts = async () => {
+export const syncTongtoolProducts = async (verbose?: boolean) => {
   for (const productType of [0, 1, 3]) {
     await TongtoolProductCollection.deleteMany({ productType });
     let shouldContinue = true;
     let pageNo = 1;
     let errorCounts = 0;
     while (shouldContinue) {
+      let startTs = getNow();
       try {
         let response = await axios.post(
           `${
             process.env.TONGTOOL_DOMAIN
           }/api-service/openapi/tongtool/goodsQuery${getTongtoolAppendix()}`,
           {
-            merchantId: "867c7b0416daad473a756d6f0e21e6d7",
+            merchantId: process.env.TONGTOOL_MERCHANT_ID,
             pageSize: "100",
             productType,
             pageNo,
@@ -32,7 +39,21 @@ export const syncTongtoolProducts = async () => {
           }
         );
 
+        if (!response.data.datas) throw new Error(response.data.message);
         let rawProducts: RawTongtoolProduct[] = response.data.datas.array;
+        if (verbose)
+          console.log(
+            timestampToDateTimeStr(getNow()),
+            "=>",
+            "tongtool product",
+            "productType",
+            productType,
+            "pageNo",
+            pageNo,
+            "quantity",
+            rawProducts.length
+          );
+
         await saveTongtoolProducts(productType, rawProducts);
 
         if (rawProducts.length < 100) {
@@ -45,7 +66,10 @@ export const syncTongtoolProducts = async () => {
         if (errorCounts++ >= 20) break;
       }
 
-      await sleep(12000);
+      let now = getNow();
+      if (now < startTs + 13) {
+        await sleep((13 - (now - startTs)) * 1000);
+      }
     }
   }
 };

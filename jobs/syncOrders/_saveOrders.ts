@@ -70,7 +70,7 @@ export const saveOrders = async (orders: RawPrestaOrder[]) => {
                 discountAmount: 0,
                 tax: line.tax,
                 total: line.row_total_inc_tax,
-                productKind: line.product_kind,
+                productKind: line.product_kind, //we can use default product_kind
               };
             }),
             "timelines.updatedAt": getNow(),
@@ -183,7 +183,7 @@ export const saveOrders = async (orders: RawPrestaOrder[]) => {
               id: productsDict[line.item_id]?.id,
               upc: productsDict[line.item_id]?.upc ?? "",
               class: productsDict[line.item_id]?.class ?? "unclassified",
-              product_kind: productsDict[line.item_id]?.product_kind ?? "",
+              product_kind: line.product_kind ?? "", //we can use default product_kind
               product_type: productsDict[line.item_id]?.product_type ?? "",
               discount_amount: 0,
             };

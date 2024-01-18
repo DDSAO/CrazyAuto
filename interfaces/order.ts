@@ -266,3 +266,12 @@ export type Order = {
   tongtoolUploadedAt?: number;
   tongtoolUploadedBy?: string;
 };
+
+export const COMPLETED_ORDER_STATUS = [
+  "stock_taken",
+  "complete",
+  "stock_pick_up_cs",
+  "closed",
+  "processing",
+  "processing_warehouse",
+];

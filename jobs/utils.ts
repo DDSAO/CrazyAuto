@@ -95,14 +95,14 @@ export const getDaysAgo = (days: number, setHours?: string) => {
   }
 };
 
-const timestampToDateStr = (time: number) => {
+export const timestampToDateStr = (time: number) => {
   let date = new Date(time * 1000);
   return `${String(date.getFullYear()).padStart(4, "0")}-${String(
     date.getMonth() + 1
   ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 };
 
-const timestampToDateTimeStr = (time: number) => {
+export const timestampToDateTimeStr = (time: number) => {
   let date = new Date(time * 1000);
   return `${String(date.getFullYear()).padStart(4, "0")}-${String(
     date.getMonth() + 1

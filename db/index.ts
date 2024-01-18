@@ -5,6 +5,7 @@ import { NextOrder, Order, OrderRefundRow } from "../interfaces/order";
 import { Customer } from "../interfaces/customer";
 import { RepairJob } from "../interfaces/repair";
 import { TongtoolOrder } from "../interfaces/tongtoolOrder";
+import { RmaInfo } from "../interfaces/rma";
 
 export const client = new MongoClient("mongodb://0.0.0.0:27017");
 
@@ -43,3 +44,7 @@ export const CustomerCollection = client
 export const RepairJobCollection = client
   .db("CrazyApp")
   .collection<RepairJob>("RepairJobCollection");
+
+export const RmaCollection = client
+  .db("CrazyApp")
+  .collection<RmaInfo>("RmaCollection");

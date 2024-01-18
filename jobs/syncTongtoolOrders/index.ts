@@ -6,6 +6,7 @@ import {
   getTongtoolAppendix,
   sleep,
   timestampToBeijingTime,
+  timestampToDateTimeStr,
   toTimestamp,
   toTwoDecimals,
 } from "../utils";
@@ -20,17 +21,23 @@ import { handleOos } from "./_handleOos";
 import { notifyPickup } from "./_notifyPickup";
 import { handleCarrierChange } from "./_handleCarrierChange";
 
-export const syncTongtoolOrders = async (start: number, end: number) => {
+export const syncTongtoolOrders = async (
+  start: number,
+  end: number,
+  verbose?: boolean
+) => {
   let shouldContinue = true;
   let pageNo = 1;
   let errorCounts = 0;
 
   while (shouldContinue) {
+    let startTs = getNow();
+
     try {
       let response = await axios.post(
         `https://open.tongtool.com/api-service/openapi/tongtool/ordersQuery${getTongtoolAppendix()}`,
         {
-          merchantId: "867c7b0416daad473a756d6f0e21e6d7",
+          merchantId: process.env.TONGTOOL_MERCHANT_ID,
           storeFlag: "0",
           pageSize: "100",
           updatedDateFrom: timestampToBeijingTime(start),
@@ -45,7 +52,21 @@ export const syncTongtoolOrders = async (start: number, end: number) => {
           timeout: 10000,
         }
       );
-      let rawOrders: RawTongtoolOrder[] = response.data.datas.array;
+
+      if (!response.data.datas) throw new Error(response.data.message);
+      let rawOrders: RawTongtoolOrder[] = response.data.datas?.array;
+
+      if (verbose)
+        console.log(
+          timestampToDateTimeStr(getNow()),
+          "=>",
+          "tongtool orders",
+          "pageNo",
+          pageNo,
+          "quantity",
+          rawOrders.length
+        );
+
       let parsedOrders = await saveTongtoolOrders(rawOrders);
       for (const order of parsedOrders) {
         if (order.dispathTypeName === "OOS") {
@@ -77,6 +98,9 @@ export const syncTongtoolOrders = async (start: number, end: number) => {
       if (errorCounts++ >= 20) break;
     }
 
-    await sleep(12000);
+    let now = getNow();
+    if (now < startTs + 13) {
+      await sleep((13 - (now - startTs)) * 1000);
+    }
   }
 };

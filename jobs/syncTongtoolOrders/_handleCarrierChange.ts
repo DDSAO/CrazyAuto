@@ -3,7 +3,7 @@ import { TongtoolOrder } from "../../interfaces/tongtoolOrder";
 import {
   getNow,
   getSeq,
-  timestampToDateStrDateFirst,
+  timestampToDateTimeStr,
   toTwoDecimals,
 } from "../utils";
 import { OrderCollection, OrderRefundRowCollection } from "../../db";
