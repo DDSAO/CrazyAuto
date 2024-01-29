@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.syncCustomers = void 0;
 const utils_1 = require("../utils");
 const _saveCustomers_1 = require("./_saveCustomers");
-const syncCustomers = (start, end) => __awaiter(void 0, void 0, void 0, function* () {
+const syncCustomers = (start, end, verbose) => __awaiter(void 0, void 0, void 0, function* () {
     let firstRequest = yield (0, utils_1.sendGetRequest)(`/customer/list?page_no=1&page_size=50&&from_update_time=${start}&to_update_time=${end}`);
     let data = [];
     if (firstRequest.total) {
@@ -22,6 +22,8 @@ const syncCustomers = (start, end) => __awaiter(void 0, void 0, void 0, function
             console.log(i, Math.ceil(total / 50));
             let res = yield (0, utils_1.sendGetRequest)(`/customer/list?page_no=${i + 1}&page_size=50&&from_update_time=${start}&to_update_time=${end}`);
             yield (0, _saveCustomers_1.saveCustomers)(res.customers);
+            if (verbose)
+                console.log((0, utils_1.timestampToDateTimeStr)((0, utils_1.getNow)()), "=>", "sync customers", "pageNo", i + 1, "quantity", res.orders.length);
         }
     }
     return [];

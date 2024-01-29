@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EMPTY_NEXT_ORDER_FEE = exports.EMPTY_NEXT_ORDER_ADDRESS = void 0;
+exports.COMPLETED_ORDER_STATUS = exports.EMPTY_NEXT_ORDER_FEE = exports.EMPTY_NEXT_ORDER_ADDRESS = void 0;
 exports.EMPTY_NEXT_ORDER_ADDRESS = {
     name: "",
     phone: "",
@@ -21,3 +21,11 @@ exports.EMPTY_NEXT_ORDER_FEE = {
     otherFee: 0,
     total: 0,
 };
+exports.COMPLETED_ORDER_STATUS = [
+    "stock_taken",
+    "complete",
+    "stock_pick_up_cs",
+    "closed",
+    "processing",
+    "processing_warehouse",
+];

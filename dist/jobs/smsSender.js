@@ -12,8 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendSMS = void 0;
 const db_1 = require("../db");
 const utils_1 = require("./utils");
-const client = require("twilio")(process.env.SENDGRID_SID, process.env.SENDGIRD_TOKEN);
+const twilio_1 = require("twilio");
 const sendSMS = (args) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const client = new twilio_1.Twilio(process.env.SENDGRID_SID, process.env.SENDGRID_TOKEN);
     const { phone, text, customer_id, type } = args;
     let parsedNumber = phone.replace(/\s/g, "");
     if (parsedNumber.startsWith("0") && parsedNumber.length === 10) {
@@ -24,6 +26,24 @@ const sendSMS = (args) => __awaiter(void 0, void 0, void 0, function* () {
     }
     let serialId = yield (0, utils_1.getSeq)("sms", 100000);
     let serialNumber = String(serialId).padStart(8, "0");
+    if (customer_id) {
+        let customer = yield db_1.CustomerCollection.findOne({ id: customer_id });
+        if (((_a = customer === null || customer === void 0 ? void 0 : customer.unsubscriptions) !== null && _a !== void 0 ? _a : []).includes("*")) {
+            yield db_1.SmSCollection.insertOne({
+                phone,
+                parsedNumber,
+                text,
+                serialNumber,
+                type,
+                success: false,
+                createdAt: (0, utils_1.getNow)(),
+                createdBy: "auto process",
+                error: "MUTED",
+                customer_id: customer_id !== null && customer_id !== void 0 ? customer_id : null,
+            });
+            return { serialNumber, success: false };
+        }
+    }
     try {
         let result = yield client.messages.create({
             body: text,

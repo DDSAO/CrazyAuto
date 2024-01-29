@@ -11,20 +11,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.syncProducts = void 0;
 const utils_1 = require("../utils");
-const _fetchProducts_1 = require("./_fetchProducts");
-const syncProducts = () => __awaiter(void 0, void 0, void 0, function* () {
+const _saveProducts_1 = require("./_saveProducts");
+const syncProducts = (verbose) => __awaiter(void 0, void 0, void 0, function* () {
     let firstRequest = yield (0, utils_1.sendGetRequest)(`/product/list?page_no=1&page_size=50&&from=0&to=${(0, utils_1.getNow)()}`);
     if (firstRequest.total) {
-        let totalPages = Math.ceil(firstRequest.total / 50);
-        let gap = Math.ceil(totalPages / 24);
-        for (let i = 0; i < 24; i++) {
-            console.log(i + 1, 24);
-            try {
-                yield (0, _fetchProducts_1._fetchProducts)(gap * i || 1, gap * (i + 1));
-            }
-            catch (e) {
-                console.log(e);
-            }
+        let { total } = firstRequest;
+        for (let i = 0; i < Math.ceil(total / 50); i++) {
+            let res = yield (0, utils_1.sendGetRequest)(`/product/list?page_no=${i + 1}&page_size=50&&from=0&to=${(0, utils_1.getNow)()}`);
+            if (res)
+                yield (0, _saveProducts_1.saveProducts)(res.products);
+            if (verbose)
+                console.log((0, utils_1.timestampToDateTimeStr)((0, utils_1.getNow)()), "=>", "sync products", "pageNo", i + 1, "quantity", res.products.length);
         }
     }
 });

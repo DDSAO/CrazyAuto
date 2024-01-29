@@ -1,10 +1,6 @@
 import { CustomerCollection, SmSCollection } from "../db";
 import { getNow, getSeq } from "./utils";
-
-const client = require("twilio")(
-  process.env.SENDGRID_SID,
-  process.env.SENDGRID_TOKEN
-);
+import { Twilio } from "twilio";
 
 export const sendSMS = async (args: {
   phone: string;
@@ -12,6 +8,11 @@ export const sendSMS = async (args: {
   type: string;
   customer_id?: number;
 }) => {
+  const client = new Twilio(
+    process.env.SENDGRID_SID,
+    process.env.SENDGRID_TOKEN
+  );
+
   const { phone, text, customer_id, type } = args;
 
   let parsedNumber = phone.replace(/\s/g, "");

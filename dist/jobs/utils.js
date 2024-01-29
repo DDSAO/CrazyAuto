@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDaysAgo = exports.beijingTimeToTimestamp = exports.timestampToBeijingTime = exports.sleep = exports.getTongtoolAppendix = exports.toTwoDecimals = exports.getNow = exports.toTimestamp = exports.getSeq = exports.sendGetRequest = void 0;
+exports.timestampToDateStrDateFirst = exports.timestampToDateTimeStr = exports.timestampToDateStr = exports.getDaysAgo = exports.beijingTimeToTimestamp = exports.timestampToBeijingTime = exports.sleep = exports.getTongtoolAppendix = exports.toTwoDecimals = exports.getNow = exports.toTimestamp = exports.getSeq = exports.sendGetRequest = void 0;
 const axios_1 = __importDefault(require("axios"));
 const db_1 = require("../db");
 const crypto_js_1 = __importDefault(require("crypto-js"));
@@ -71,7 +71,7 @@ const getTongtoolAppendix = () => {
     let now = (0, exports.getNow)();
     let signRaw = `app_token${process.env.TONGTOOL_APP_TOKEN}timestamp${now}${process.env.TONGTOOL_APP_SECRET}`;
     let sign = crypto_js_1.default.MD5(signRaw).toString();
-    return `?app_token=${process.env.TONGTOOL_APP_TOKEN}}&timestamp=${now}&sign=${sign}`;
+    return `?app_token=${process.env.TONGTOOL_APP_TOKEN}&timestamp=${now}&sign=${sign}`;
 };
 exports.getTongtoolAppendix = getTongtoolAppendix;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -98,3 +98,20 @@ const getDaysAgo = (days, setHours) => {
     }
 };
 exports.getDaysAgo = getDaysAgo;
+const timestampToDateStr = (time) => {
+    let date = new Date(time * 1000);
+    return `${String(date.getFullYear()).padStart(4, "0")}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+};
+exports.timestampToDateStr = timestampToDateStr;
+const timestampToDateTimeStr = (time) => {
+    let date = new Date(time * 1000);
+    return `${String(date.getFullYear()).padStart(4, "0")}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")} ${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(date.getSeconds()).padStart(2, "0")}`;
+};
+exports.timestampToDateTimeStr = timestampToDateTimeStr;
+const timestampToDateStrDateFirst = (time) => {
+    if (!time)
+        return "-";
+    let date = new Date(time * 1000);
+    return `${String(date.getDate()).padStart(2, "0")}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getFullYear()).padStart(4, "0")}`;
+};
+exports.timestampToDateStrDateFirst = timestampToDateStrDateFirst;

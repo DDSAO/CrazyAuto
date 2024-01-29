@@ -9,19 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.syncBuybacks = void 0;
+exports.syncRmas = void 0;
 const utils_1 = require("../utils");
-const syncBuybacks = (start, end) => __awaiter(void 0, void 0, void 0, function* () {
-    let firstRequest = yield (0, utils_1.sendGetRequest)(`/buyback/list?page_no=1&page_size=50&&from_update_time=${start}&to_update_time=${end}`);
-    let data = [];
-    if (firstRequest.total) {
+const syncRmas = (start, end, verbose) => __awaiter(void 0, void 0, void 0, function* () {
+    let firstRequest = yield (0, utils_1.sendGetRequest)(`/buyback/list?page_no=1&page_size=50&&from=${start}&to=${end}`);
+    if (firstRequest === null || firstRequest === void 0 ? void 0 : firstRequest.total) {
         let { total } = firstRequest;
-        data = firstRequest.buybacks;
         for (let i = 0; i < Math.ceil(total / 50); i++) {
-            let res = yield (0, utils_1.sendGetRequest)(`/buyback/list?page_no=${i + 2}&page_size=50&&from_update_time=${start}&to_update_time=${end}`);
-            data = data.concat(res.buybacks);
+            let res = yield (0, utils_1.sendGetRequest)(`/buyback/list?page_no=${i + 1}&page_size=50&&from=${start}&to=${end}`);
+            // await saveRmas(res.rmas);
+            if (verbose)
+                console.log((0, utils_1.timestampToDateTimeStr)((0, utils_1.getNow)()), "=>", "sync buyback", "pageNo", i + 1, "quantity", res.rmas.length);
         }
     }
     return [];
 });
-exports.syncBuybacks = syncBuybacks;
+exports.syncRmas = syncRmas;
