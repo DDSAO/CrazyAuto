@@ -29,7 +29,7 @@ export const syncCustomers = async (
           "pageNo",
           i + 1,
           "quantity",
-          res.orders.length
+          res.customers.length
         );
     }
   }

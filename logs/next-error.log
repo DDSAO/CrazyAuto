@@ -1,0 +1,164 @@
+Error: input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47600
+    at nP (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:56224)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61978)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+    at nO (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64035)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:62224)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+    at nP (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:56390)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61978)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+Error: input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47600
+    at nP (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:56224)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61978)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+    at nO (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64035)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:62224)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+    at nP (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:56390)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61978)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+Error: input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47600
+    at nP (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:56224)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61978)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+    at nO (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64035)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:62224)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+    at nP (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:56390)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61978)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+Error: input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47600
+    at nP (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:56224)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61978)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+    at nO (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64035)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:62224)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+    at nP (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:56390)
+    at n$ (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61978)
+    at nj (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64628)
+`x-forwarded-host` header with value `54.153.165.119:80` does not match `origin` header with value `54.153.165.119` from a forwarded Server Actions request. Aborting the action.
+ ⨯ Error: Invalid Server Actions request.
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5230)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:15489)
+    at rB (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24914)
+    at r7.render (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:28962)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+Missing `origin` header from a forwarded Server Actions request.
+Error: Failed to find Server Action "null". This request might be from an older or newer deployment. Original error: Invariant: Missing 'next-action' header.
+    at ry (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:1644)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:6358
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at rm (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:5711)
+    at rD (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:22552)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:25097
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+    at Object.wrap (/opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:13:16241)
+    at /opt/bitnami/apache/htdocs/CrazyNext3/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:24987
+    at AsyncLocalStorage.run (node:async_hooks:338:14)

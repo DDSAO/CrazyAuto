@@ -35,7 +35,7 @@ export const OrderCollection = client
   .collection<Order>("OrderCollection");
 export const TongtoolOrderCollection = client
   .db("CrazyApp")
-  .collection<TongtoolOrder>("OrderCollection");
+  .collection<TongtoolOrder>("TongtoolOrderCollection");
 
 export const CustomerCollection = client
   .db("CrazyApp")
