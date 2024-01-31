@@ -8,12 +8,18 @@ export const sendSMS = async (args: {
   type: string;
   customer_id?: number;
 }) => {
+  return { serialNumber: "", success: false }; //for now
+
   const client = new Twilio(
     process.env.SENDGRID_SID,
     process.env.SENDGRID_TOKEN
   );
 
   const { phone, text, customer_id, type } = args;
+
+  //avoid duplicated message
+  let duplicatedSmS = await SmSCollection.findOne({ text, success: true });
+  if (duplicatedSmS) return { serialNumber: "", success: false };
 
   let parsedNumber = phone.replace(/\s/g, "");
 
