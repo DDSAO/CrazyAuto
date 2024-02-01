@@ -15,6 +15,15 @@ const app = express();
 const port = process.env.PORT || 4999;
 const VERBOSE = true;
 
+import { Client } from "pg";
+const client = new Client({
+  host: process.env.DB_HOST,
+  port: 5432,
+  database: process.env.DB_DATABASE,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+});
+
 new CronJob(
   "0 0 1 * * *",
   async () => {
@@ -138,7 +147,12 @@ new CronJob(
 );
 
 app.get("/", async (req, res) => {
-  await syncRmas(1532000714, 1852415960, VERBOSE);
+  await client.connect();
+
+  // let result = await client.query("SELECT * FROM public.test");
+  // console.log(result);
+
+  await client.end();
   res.send("ok");
 });
 
