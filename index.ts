@@ -6,7 +6,12 @@ import { syncProducts } from "./jobs/syncProducts";
 import { syncRmas } from "./jobs/syncRmas";
 import { syncTongtoolProducts } from "./jobs/syncTongtoolProducts";
 import { updateOrderStatusByIds } from "./jobs/updateOrdersStatus";
-import { getDaysAgo, getNow, timestampToDateTimeStr } from "./jobs/utils";
+import {
+  getDaysAgo,
+  getNow,
+  timestampToDateTimeStr,
+  toTimestamp,
+} from "./jobs/utils";
 import { syncTongtoolOrders } from "./jobs/syncTongtoolOrders";
 import dotenv from "dotenv";
 import { getClient } from "./db/postgre";
@@ -127,6 +132,32 @@ new CronJob(
   "30 0 */1 * * *",
   async () => {
     await syncRmas(getNow() - 3605, getNow(), VERBOSE);
+  },
+  () => {
+    if (VERBOSE)
+      console.log(
+        timestampToDateTimeStr(getNow()),
+        "sync recent rmas completed"
+      );
+  },
+  true,
+  "Australia/Sydney"
+);
+
+//temp mission
+new CronJob(
+  "0 30 9 * * *",
+  async () => {
+    await syncOrders(
+      toTimestamp(new Date("2024-02-01 20:00:00").getTime()),
+      getNow(),
+      VERBOSE
+    );
+    await syncTongtoolOrders(
+      toTimestamp(new Date("2024-02-01 20:00:00").getTime()),
+      getNow(),
+      VERBOSE
+    );
   },
   () => {
     if (VERBOSE)
