@@ -30,21 +30,21 @@ new CronJob(
   "Australia/Sydney"
 );
 
-// new CronJob(
-//   "0 0 2 * * *",
-//   async () => {
-//     await syncTongtoolProducts(VERBOSE);
-//   },
-//   () => {
-//     if (VERBOSE)
-//       console.log(
-//         timestampToDateTimeStr(getNow()),
-//         "sync tongtool products completed"
-//       );
-//   },
-//   true,
-//   "Australia/Sydney"
-// );
+new CronJob(
+  "0 0 2 * * *",
+  async () => {
+    await syncTongtoolProducts(VERBOSE);
+  },
+  () => {
+    if (VERBOSE)
+      console.log(
+        timestampToDateTimeStr(getNow()),
+        "sync tongtool products completed"
+      );
+  },
+  true,
+  "Australia/Sydney"
+);
 
 new CronJob(
   "0 0 4 * * *",
@@ -75,37 +75,37 @@ new CronJob(
   "Australia/Sydney"
 );
 
-// new CronJob(
-//   "5 * * * * *",
-//   async () => {
-//     await syncTongtoolOrders(getNow() - 65, getNow(), VERBOSE);
-//   },
-//   () => {
-//     if (VERBOSE)
-//       console.log(
-//         timestampToDateTimeStr(getNow()),
-//         "sync recent tongtool orders completed"
-//       );
-//   },
-//   true,
-//   "Australia/Sydney"
-// );
+new CronJob(
+  "5 * * * * *",
+  async () => {
+    await syncTongtoolOrders(getNow() - 65, getNow(), VERBOSE);
+  },
+  () => {
+    if (VERBOSE)
+      console.log(
+        timestampToDateTimeStr(getNow()),
+        "sync recent tongtool orders completed"
+      );
+  },
+  true,
+  "Australia/Sydney"
+);
 
-// new CronJob(
-//   "5 0 * * * *",
-//   async () => {
-//     await syncTongtoolOrders(getNow() - 3605, getNow(), VERBOSE);
-//   },
-//   () => {
-//     if (VERBOSE)
-//       console.log(
-//         timestampToDateTimeStr(getNow()),
-//         "sync recent tongtool orders completed"
-//       );
-//   },
-//   true,
-//   "Australia/Sydney"
-// );
+new CronJob(
+  "5 0 * * * *",
+  async () => {
+    await syncTongtoolOrders(getNow() - 3605, getNow(), VERBOSE);
+  },
+  () => {
+    if (VERBOSE)
+      console.log(
+        timestampToDateTimeStr(getNow()),
+        "sync recent tongtool orders completed"
+      );
+  },
+  true,
+  "Australia/Sydney"
+);
 
 new CronJob(
   "0 0 */1 * * *",

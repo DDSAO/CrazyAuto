@@ -6,6 +6,7 @@ import { Customer } from "../interfaces/customer";
 import { RepairJob } from "../interfaces/repair";
 import { TongtoolOrder } from "../interfaces/tongtoolOrder";
 import { RmaInfo } from "../interfaces/rma";
+import { User } from "../interfaces/user";
 
 export const client = new MongoClient("mongodb://0.0.0.0:27017");
 
@@ -48,3 +49,7 @@ export const RepairJobCollection = client
 export const RmaCollection = client
   .db("CrazyApp")
   .collection<RmaInfo>("RmaCollection");
+
+export const UserCollection = client
+  .db("CrazyApp")
+  .collection<User>("UserCollection");
