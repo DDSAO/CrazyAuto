@@ -58,6 +58,7 @@ export const saveCustomers = async (rawCustomers: RawPrestaCustomer[]) => {
         abn: rawCustomer.abn,
         createdAt: rawCustomer.created_at,
         prestaId: rawCustomer.id,
+        business_approve_status: rawCustomer.business_approve_status,
       });
     }
   }

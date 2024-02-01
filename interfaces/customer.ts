@@ -34,6 +34,7 @@ export interface Customer {
   account_manager_name: string | null;
   lastSyncAt: number;
   address?: MagentoCustomerAddress | null;
+  business_approve_status: string;
 
   unsubscriptions?: string[] | null;
   emails?: string[] | null;
