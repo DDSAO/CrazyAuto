@@ -146,7 +146,7 @@ new CronJob(
 
 //temp mission
 new CronJob(
-  "0 30 11 * * *",
+  "0 46 11 * * *",
   async () => {
     await syncOrders(
       toTimestamp(new Date("2024-02-01 20:00:00").getTime()),
