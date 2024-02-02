@@ -146,18 +146,10 @@ new CronJob(
 
 //temp mission
 new CronJob(
-  "0 30 9 * * *",
+  "0 5 11 * * *",
   async () => {
-    await syncOrders(
-      toTimestamp(new Date("2024-02-01 20:00:00").getTime()),
-      getNow(),
-      VERBOSE
-    );
-    await syncTongtoolOrders(
-      toTimestamp(new Date("2024-02-01 20:00:00").getTime()),
-      getNow(),
-      VERBOSE
-    );
+    await syncCustomers(1, getNow(), VERBOSE);
+    await syncProducts(VERBOSE);
   },
   () => {
     if (VERBOSE)
