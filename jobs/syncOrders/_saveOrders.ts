@@ -180,7 +180,7 @@ export const saveOrders = async (orders: RawPrestaOrder[]) => {
           lines: order.lines.map((line) => {
             return {
               ...line,
-              id: productsDict[line.item_id]?.id,
+              item_id: productsDict[line.item_id]?.id,
               upc: productsDict[line.item_id]?.upc ?? "",
               class: productsDict[line.item_id]?.class ?? "unclassified",
               product_kind: line.product_kind ?? "", //we can use default product_kind
