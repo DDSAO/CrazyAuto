@@ -148,9 +148,6 @@ new CronJob(
 new CronJob(
   "0 6 11 * * *",
   async () => {
-    await syncCustomers(1, getNow(), VERBOSE);
-    await syncProducts(VERBOSE);
-
     await syncOrders(
       toTimestamp(new Date("2024-02-01 20:00:00").getTime()),
       getNow(),
