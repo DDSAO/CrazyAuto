@@ -242,6 +242,7 @@ export type Order = {
   shipping: number;
 
   created_at: number;
+  updated_at: number;
   order_date: number;
 
   customer_email: string;

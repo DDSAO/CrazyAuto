@@ -116,7 +116,6 @@ export interface RmaInfo {
   packageDescription?: string | null;
 
   internalNotes?: InternalNote[];
-
 }
 
 export interface RawRmaInfo {
@@ -127,7 +126,6 @@ export interface RawRmaInfo {
   payment_method: string;
 
   customer_id: number;
-  customer_czp_id: number | null;
 
   items: {
     name: string;

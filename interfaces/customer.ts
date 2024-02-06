@@ -22,7 +22,7 @@ export interface MagentoCustomerAddress {
 
 export interface Customer {
   id: number;
-  prestaId: number;
+  prestaId?: number;
   token: string;
   firstname: string;
   lastname: string;
@@ -30,9 +30,8 @@ export interface Customer {
   phone: string;
   group_id: number;
   group_name: string;
-  account_manager_id: number;
+  account_manager_id: number | null;
   account_manager_name: string | null;
-  lastSyncAt: number;
   address?: MagentoCustomerAddress | null;
   business_approve_status: string;
 
@@ -43,6 +42,8 @@ export interface Customer {
   abn?: string | null;
 
   createdAt: number;
+  updatedAt: number;
+  lastSyncAt: number;
 }
 
 export interface RawPrestaCustomer {
