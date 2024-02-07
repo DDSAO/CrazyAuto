@@ -1,0 +1,7 @@
+CREATE TABLE buybacks.buyback_price_board (
+  "entity_id" integer GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 1),
+  "title" text,
+  "created_at" integer,
+  "created_by" text,
+  PRIMARY KEY ("entity_id")
+);
