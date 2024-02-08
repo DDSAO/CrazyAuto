@@ -102,6 +102,7 @@ export const migrateBuybacks = async () => {
         customer_platform_id,
         customer_platform,
         buyback_platform_id,
+        buyback_platform,
         num,
         token,
         status,
@@ -142,7 +143,7 @@ export const migrateBuybacks = async () => {
         $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 
         $11, $12, $13, $14, $15, $16, $17, $18, $19, $20,
         $21, $22, $23, $24, $25, $26, $27, $28, $29, $30,
-        $31, $32, $33, $34, $35
+        $31, $32, $33, $34, $35, $36
       WHERE NOT EXISTS (
         SELECT 1 FROM buybacks.buyback WHERE customer_platform = $2 AND buyback_platform_id = $3
       )
@@ -152,6 +153,7 @@ export const migrateBuybacks = async () => {
         buyback.customer_id,
         "magento",
         buyback.id,
+        "magento",
         buyback.num,
         buyback.token ?? v4(),
         buyback.status,

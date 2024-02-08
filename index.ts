@@ -1,22 +1,6 @@
-import { CronJob } from "cron";
-import express from "express";
-import { syncCustomers } from "./jobs/prestaJobs/syncCustomers";
-import { syncOrders } from "./jobs/prestaJobs/syncOrders";
-import { syncProducts } from "./jobs/prestaJobs/syncProducts";
-import { syncRmas } from "./jobs/prestaJobs/syncRmas";
-import { syncTongtoolProducts } from "./jobs/prestaJobs/syncTongtoolProducts";
-import { updateOrderStatusByIds } from "./jobs/prestaJobs/updateOrdersStatus";
-import {
-  getDaysAgo,
-  getNow,
-  timestampToDateTimeStr,
-  toTimestamp,
-} from "./jobs/utils";
-import { syncTongtoolOrders } from "./jobs/prestaJobs/syncTongtoolOrders";
 import dotenv from "dotenv";
-import { getClient } from "./db/postgres";
-import { migrateCustomers } from "./scripts/buyback/_migrateCustomers";
-import { migrateBuybacks } from "./scripts/buyback/_migrateBuybacks";
+import express from "express";
+import { sendSMS } from "./jobs/smsSender";
 dotenv.config({ path: ".env" });
 
 const app = express();
@@ -173,7 +157,11 @@ const VERBOSE = true;
 
 app.get("/", async (req, res) => {
   // await migrateCustomers();
-  await migrateBuybacks();
+  await sendSMS({
+    phone: "0432092214",
+    text: "hi, this is from crazy parts yea",
+    type: "test",
+  });
 
   res.send("ok");
 });

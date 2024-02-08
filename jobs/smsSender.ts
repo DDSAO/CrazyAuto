@@ -8,7 +8,7 @@ export const sendSMS = async (args: {
   type: string;
   customer_id?: number;
 }) => {
-  return { serialNumber: "", success: false }; //for now
+  // return { serialNumber: "", success: false }; //for now
 
   const client = new Twilio(
     process.env.SENDGRID_SID,
@@ -54,9 +54,10 @@ export const sendSMS = async (args: {
   try {
     let result = await client.messages.create({
       body: text,
-      from: "+61427654303",
+      from: process.env.SENDGRID_FROM_PHONE,
       to: parsedNumber,
     });
+    console.log(result);
     if (result.status === "queued") {
       await SmSCollection.insertOne({
         phone,
