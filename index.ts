@@ -1,6 +1,10 @@
 import dotenv from "dotenv";
 import express from "express";
 import { sendSMS } from "./jobs/smsSender";
+import { getClient } from "./db/postgres";
+import { saveCustomers } from "./jobs/magentoJobs/syncCustomers/_saveCustomers";
+import { syncCustomers } from "./jobs/magentoJobs/syncCustomers";
+import { getDaysAgo, getNow } from "./jobs/utils";
 dotenv.config({ path: ".env" });
 
 const app = express();
@@ -157,11 +161,7 @@ const VERBOSE = true;
 
 app.get("/", async (req, res) => {
   // await migrateCustomers();
-  await sendSMS({
-    phone: "0432092214",
-    text: "hi, this is from crazy parts yea",
-    type: "test",
-  });
+  await syncCustomers(0, getNow(), VERBOSE);
 
   res.send("ok");
 });

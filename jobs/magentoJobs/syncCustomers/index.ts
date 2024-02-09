@@ -7,18 +7,18 @@ export const syncCustomers = async (
   verbose?: boolean
 ) => {
   let firstRequest = await sendGetRequest(
-    `/customer/list?page_no=1&page_size=50&&from_update_time=${start}&to_update_time=${end}`
+    `/customer/list?page_no=1&page_size=20&&from_update_time=${start}&to_update_time=${end}`
   );
   let data = [];
   if (firstRequest.total) {
     let { total } = firstRequest;
     data = firstRequest.customers;
-    for (let i = 0; i < Math.ceil(total / 50); i++) {
-      console.log(i, Math.ceil(total / 50));
+    for (let i = 0; i < Math.ceil(total / 20); i++) {
+      console.log(i, Math.ceil(total / 20));
       let res = await sendGetRequest(
         `/customer/list?page_no=${
           i + 1
-        }&page_size=50&&from_update_time=${start}&to_update_time=${end}`
+        }&page_size=20&&from_update_time=${start}&to_update_time=${end}`
       );
       await saveCustomers(res.customers);
       if (verbose)

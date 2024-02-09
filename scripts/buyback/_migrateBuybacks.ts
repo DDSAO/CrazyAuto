@@ -279,6 +279,7 @@ export const migrateBuybacks = async () => {
     }
   }
 
+  await client.end();
   // let buybacks = await BuybackCollection.find({}).toArray();
   // let i = 0;
 };
