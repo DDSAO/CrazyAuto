@@ -5,6 +5,9 @@ import { getClient } from "./db/postgres";
 import { saveCustomers } from "./jobs/magentoJobs/syncCustomers/_saveCustomers";
 import { syncCustomers } from "./jobs/magentoJobs/syncCustomers";
 import { getDaysAgo, getNow } from "./jobs/utils";
+import { migrateCustomers } from "./scripts/buyback/_migrateCustomers";
+import { migrateBuybacks } from "./scripts/buyback/_migrateBuybacks";
+import { migratePhones } from "./scripts/phones/_migratePhones";
 dotenv.config({ path: ".env" });
 
 const app = express();
@@ -161,7 +164,9 @@ const VERBOSE = true;
 
 app.get("/", async (req, res) => {
   // await migrateCustomers();
-  await syncCustomers(0, getNow(), VERBOSE);
+  // await syncCustomers(0, getNow(), VERBOSE);
+  // await migrateCustomers();
+  await migratePhones();
 
   res.send("ok");
 });
